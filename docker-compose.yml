@@ -1,0 +1,70 @@
+version: "3.6"
+
+services:
+
+  chat:
+    image: serg228/vs:chat
+    container_name: chat
+    restart: always
+    networks:
+      - microservices
+    ports:
+      - 5200:5200
+
+  back:
+    image: serg228/vs:back
+    container_name: back
+    restart: always
+    networks:
+      - microservices
+    ports:
+      - 5100:5100
+
+  front:
+    image: serg228/vs:front
+    container_name: front
+    restart: always
+    networks:
+      - microservices
+    ports:
+      - 4200:4200
+
+  proxy:
+    image: serg228/vs:ng_proxy
+    container_name: ng_proxy
+    volumes:
+      - ./ng/nginx.conf:/etc/nginx.conf
+    networks:
+      - microservices
+    ports:
+      - 80:80
+
+  postgres:
+      image: postgres:14
+      env_file: .env
+      container_name: postgres
+      volumes:
+        - .:/docker-entrypoint-initdb.d
+      ports:
+        - 5432:5432
+      expose:
+        - 5432
+      networks:
+      - microservices
+
+  DB:
+    image: serg228/vs:data_base
+    container_name: DB
+    restart: always
+    ports:
+      - 5210:5210
+    expose:
+      - 5210
+    depends_on:
+      - postgres
+    networks:
+      - microservices
+
+networks:
+  microservices:
+    driver: bridge
