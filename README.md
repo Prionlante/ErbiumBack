@@ -1,7 +1,7 @@
 # Erbium back-end #
 > Note: `The project step in a deep development stage`
 
-> Note: `The database changes some times, so the development version may fail to get new sources`
+> Note: `The database changes some times, so the development version may fail to get news sources`
 
 This repository stores part of the backend of "Voice of City" project. 
 This project was mainly developed to demonstrate the possible functionality of the project for various competitions and a potential sponsor.
