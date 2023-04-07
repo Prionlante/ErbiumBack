@@ -21,7 +21,7 @@ If you are using docker, then you need to run compose file in the root directory
 ```sh
 docker compose up
 ```
-[![Docker hub page](https://hub.docker.com/repository/docker/serg228/vs/general)](https://hub.docker.com/repository/docker/serg228/vs/general)
+[![Docker hub page]https://hub.docker.com/r/serg228/vs)](https://hub.docker.com/r/serg228/vs)
 
 # How to use? #
 Once you have launched the application, go to
